@@ -1,0 +1,4 @@
+*.pyc
+
+#intellij
+.idea/
