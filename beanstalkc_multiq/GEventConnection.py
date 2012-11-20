@@ -49,8 +49,9 @@ class ConnectionWrapper:
         # raises an exception if a connection can't be established
         g = gevent.spawn(__connect__, self.host, self.port)
 
-        gevent.joinall([g])
-        self.writer_conn = g.value
+        g.join()
+        self.writer_conn = g.get()
+
         return self.writer_conn
 
     def destroy_writer(self):
