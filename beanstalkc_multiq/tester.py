@@ -24,4 +24,5 @@ conn.listen("pushit-notif", callback)
 #print("Put data on the queue?")
 
 while True:
-    gevent.sleep(1.0)
+    gevent.sleep(3.0)
+    conn.put("pushit-notif", "some data to process")
